@@ -10,3 +10,30 @@
  ✓ Ready in 4.3s
  ○ Compiling / ...
  ✓ Compiled / in 13.7s (1564 modules)
+ ○ Compiling /_not-found ...
+ GET / 200 in 21293ms
+ ✓ Compiled /_not-found in 17.1s (1554 modules)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ GET /_next/static/webpack/e9efd6dfee555133.webpack.hot-update.json 404 in 16083ms
+ GET / 200 in 14624ms
+ GET / 200 in 1626ms
+ ○ Compiling /api/publications ...
+ ✓ Compiled /api/publications in 2.1s (1574 modules)
+ GET /api/publications 200 in 4197ms
+ GET /api/publications 200 in 146ms
+ GET / 200 in 892ms
+ GET /api/publications 200 in 75ms
+ ✓ Compiled in 2.1s (1584 modules)
+ GET / 200 in 393ms
+ GET / 200 in 866ms
+ GET /api/publications 200 in 61ms
+ GET / 200 in 1492ms
+ GET /api/publications 200 in 60ms
+ GET / 200 in 80ms
+ ⚠ Found a change in next.config.ts. Restarting the server to apply the changes...
+   ▲ Next.js 15.3.3
+   - Local:        http://localhost:3000
+   - Network:      http://10.0.0.65:3000
+
+ ✓ Starting...
+ ✓ Ready in 6.4s
