@@ -1,6 +1,5 @@
 {
-      "framework": "nextjs",
-      "installCommand": "npm install --legacy-peer-deps",
-      "buildCommand": "npm run build",
-      "nodeVersion": "20.x"
+  "framework": "nextjs",
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run build"
 }
