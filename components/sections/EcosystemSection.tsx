@@ -4,6 +4,8 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SectionHeading from '@/components/ui/SectionHeading'
 
+
+
 const partners = [
   {
     name: 'Arizona State University',
@@ -13,11 +15,7 @@ const partners = [
     desc: 'Deep academic collaboration on DNA nanotechnology, transistor fabrication, and biosensor research. Ranked #1 in innovation in the United States.',
     color: '#8C1D40',
     icon: (
-      <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7">
-        <rect x="4" y="28" width="32" height="4" rx="1" fill="#8C1D40" opacity="0.8" />
-        <path d="M20 8 L8 28 H14 L20 16 L26 28 H32 L20 8Z" fill="#8C1D40" />
-        <path d="M15 22 H25" stroke="white" strokeWidth="1.5" />
-      </svg>
+      <Image src="/images/asu-logo.png" alt="Arizona State University" width={80} height={30} className="w-20 h-auto object-contain" />
     ),
   },
   {
@@ -131,8 +129,8 @@ export default function EcosystemSection() {
             >
               <div className="flex items-start gap-4 mb-4">
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-105"
-                  style={{ background: `${p.color}18` }}
+                  className="h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-105 px-3"
+                  style={{ background: `${p.color}18`, minWidth: '3rem' }}
                 >
                   {p.icon}
                 </div>
