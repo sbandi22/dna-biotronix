@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import TechnologySection from '@/components/sections/TechnologySection'
 import ArchitectureSection from '@/components/sections/ArchitectureSection'
-import AnalyticsSection from '@/components/sections/AnalyticsSection'
 
 const tabs = [
   {
@@ -27,20 +26,6 @@ const tabs = [
         <rect x="6" y="5" width="8" height="10" rx="2" stroke="currentColor" strokeWidth="1.2" />
         <path d="M10 5V3M10 17V15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
         <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    id: 'ai',
-    label: 'AI Analysis',
-    icon: (
-      <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4">
-        {[5, 10, 15].map(x =>
-          [5, 10, 15].map(y => (
-            <circle key={`${x}-${y}`} cx={x} cy={y} r="1.5" fill="currentColor" opacity={y === 10 ? '1' : '0.5'} />
-          ))
-        )}
-        <path d="M5 5L10 10M15 5L10 10M5 15L10 10M15 15L10 10" stroke="currentColor" strokeWidth="0.8" opacity="0.4" />
       </svg>
     ),
   },
@@ -94,7 +79,6 @@ export default function TechnologyHub() {
         >
           {active === 'overview' && <TechnologySection />}
           {active === 'architecture' && <ArchitectureSection />}
-          {active === 'ai' && <AnalyticsSection />}
         </motion.div>
       </AnimatePresence>
     </div>
