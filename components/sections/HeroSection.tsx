@@ -7,43 +7,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import ParticleBackground from '@/components/animations/ParticleBackground'
 
-const appCards = [
-  {
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
-        <circle cx="16" cy="12" r="6" stroke="#00AAFF" strokeWidth="1.5" />
-        <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#00AAFF" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M22 16c2.2 1.4 3.5 3.8 3.5 6.5" stroke="#00AAFF" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-        <circle cx="24" cy="10" r="3" fill="#0066FF" opacity="0.6" />
-      </svg>
-    ),
-    label: 'Personal Monitoring',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
-        <path d="M16 4 C10 4 6 10 6 16 C6 22 10 28 16 28" stroke="#00AAFF" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M16 4 C22 4 26 10 26 16 C26 22 22 28 16 28" stroke="#00AAFF" strokeWidth="1.5" strokeLinecap="round" />
-        <circle cx="16" cy="16" r="3" fill="#0066FF" />
-        <path d="M6 16 H26" stroke="#00AAFF" strokeWidth="1" opacity="0.4" />
-        <path d="M16 4 V28" stroke="#00AAFF" strokeWidth="1" opacity="0.4" />
-        <circle cx="16" cy="28" r="2" fill="#00AAFF" opacity="0.7" />
-      </svg>
-    ),
-    label: 'Environmental Testing',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
-        <rect x="6" y="10" width="20" height="14" rx="3" stroke="#00AAFF" strokeWidth="1.5" />
-        <path d="M16 6 V10" stroke="#00AAFF" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M12 6 H20" stroke="#00AAFF" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M11 17 L15 21 L21 13" stroke="#00AAFF" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-    label: 'Point of Care',
-  },
-]
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false)
@@ -162,24 +125,6 @@ export default function HeroSection() {
             {/* Inner border glow */}
             <div className="absolute inset-0 rounded-2xl pointer-events-none"
               style={{ boxShadow: 'inset 0 0 70px rgba(0,102,255,0.10)', border: '1px solid rgba(0,102,255,0.20)', zIndex: 5 }} />
-          </motion.div>
-
-          {/* Application category chips */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="flex flex-wrap items-center justify-center gap-4 mt-10"
-          >
-            {appCards.map((c) => (
-              <div
-                key={c.label}
-                className="flex items-center gap-2.5 px-5 py-2.5 rounded-full glass border border-white/8 hover:border-[#0066FF]/30 transition-all duration-200"
-              >
-                {c.icon}
-                <span className="text-sm font-medium text-white">{c.label}</span>
-              </div>
-            ))}
           </motion.div>
 
           {/* Tagline */}
