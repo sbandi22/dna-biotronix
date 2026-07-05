@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import TechnologySection from '@/components/sections/TechnologySection'
 import ArchitectureSection from '@/components/sections/ArchitectureSection'
-import DetectionSection from '@/components/sections/DetectionSection'
 import AnalyticsSection from '@/components/sections/AnalyticsSection'
 
 const tabs = [
@@ -28,15 +27,6 @@ const tabs = [
         <rect x="6" y="5" width="8" height="10" rx="2" stroke="currentColor" strokeWidth="1.2" />
         <path d="M10 5V3M10 17V15" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
         <circle cx="10" cy="10" r="1.5" fill="currentColor" />
-      </svg>
-    ),
-  },
-  {
-    id: 'detection',
-    label: 'Molecular Detection',
-    icon: (
-      <svg viewBox="0 0 20 20" fill="none" className="w-4 h-4">
-        <path d="M2 10 H5 L7 5 L9 15 L11 3 L13 17 L15 10 H18" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },
@@ -104,7 +94,6 @@ export default function TechnologyHub() {
         >
           {active === 'overview' && <TechnologySection />}
           {active === 'architecture' && <ArchitectureSection />}
-          {active === 'detection' && <DetectionSection />}
           {active === 'ai' && <AnalyticsSection />}
         </motion.div>
       </AnimatePresence>
