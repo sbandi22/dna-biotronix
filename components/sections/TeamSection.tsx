@@ -14,7 +14,7 @@ const founders = [
     bio: '30+ years in DNA biotechnology and single-molecule detection. Inventor of the DNA wired nanojunction transistor, translating a decade of peer-reviewed science into a commercial biosensor platform for proactive healthcare.',
     expertise: ['DNA Nanotechnology', 'Single-Molecule Detection', 'R&D Leadership'],
     initials: 'PZ',
-    photo: '/images/team-peiming-zhang.png',
+    photo: null,
     accentColor: '#0066FF',
     gradientFrom: '#003DB5',
     gradientTo: '#0077FF',
@@ -38,7 +38,7 @@ const founders = [
     bio: 'Director of the Biodesign Center for Bioelectronics & Biosensors at ASU. Pioneer in molecular electronics and nanoelectronics with decades of expertise in single-molecule conductance measurements and nanoscale device physics.',
     expertise: ['Molecular Electronics', 'Nanoelectronics', 'Bioelectronics'],
     initials: 'JH',
-    photo: '/images/team-josh-hihath.png',
+    photo: null,
     accentColor: '#0066FF',
     gradientFrom: '#002E8A',
     gradientTo: '#0066EE',
@@ -65,7 +65,7 @@ const advisors = [
     bio: "World-renowned neuroscientist with expertise in Parkinson's and Alzheimer's disease. Guides clinical application strategy for neurodegenerative biomarker detection.",
     expertise: ["Neuroscience", "Parkinson's", "Alzheimer's"],
     initials: 'JK',
-    photo: null,
+    photo: '/images/advisor-kordower.png',
     accentColor: '#0066FF',
     gradientFrom: '#002299',
     gradientTo: '#0055DD',
@@ -77,7 +77,7 @@ const advisors = [
     bio: 'Researcher in molecular sensing, protein structure, and nanoscale biosensor interfaces. Deep expertise in analyte-receptor interactions and platform validation.',
     expertise: ['Protein Science', 'Molecular Sensing', 'Biosensor Interfaces'],
     initials: 'QC',
-    photo: null,
+    photo: '/images/advisor-qsc.png',
     accentColor: '#00AAFF',
     gradientFrom: '#004466',
     gradientTo: '#0099CC',
@@ -276,31 +276,6 @@ export default function TeamSection() {
           <p className="text-center text-sm text-text-muted max-w-2xl mx-auto mt-4 mb-10">
             Three co-founders combining deep expertise in molecular science, nanoelectronics, and corporate finance — with decades of complementary experience.
           </p>
-
-          {/* Team group photo */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden mb-10"
-            style={{ boxShadow: '0 0 60px rgba(0,102,255,0.14), 0 20px 60px rgba(0,0,0,0.6)' }}
-          >
-            <Image
-              src="/images/team-photo.png"
-              alt="DNA Biotronix Founding Team — Peiming Zhang, Michael Chen, Josh Hihath"
-              width={1456}
-              height={819}
-              className="w-full h-auto"
-              style={{ filter: 'brightness(0.92) contrast(1.05)' }}
-            />
-            <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
-              style={{ background: 'linear-gradient(to top, #01050E, transparent)', zIndex: 3 }} />
-            <div className="absolute inset-x-0 top-0 h-10 pointer-events-none"
-              style={{ background: 'linear-gradient(to bottom, #01050E, transparent)', zIndex: 3 }} />
-            <div className="absolute inset-0 rounded-2xl pointer-events-none"
-              style={{ boxShadow: 'inset 0 0 40px rgba(0,102,255,0.08)', border: '1px solid rgba(0,102,255,0.15)', zIndex: 4 }} />
-          </motion.div>
 
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {founders.map((f, i) => (
