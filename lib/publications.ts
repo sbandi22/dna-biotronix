@@ -10,9 +10,6 @@ export interface Publication {
   openAccess: boolean
 }
 
-// Server-side source of truth — update doi / pdfUrl here when you have the real links.
-// doi links resolve via https://doi.org/<doi>
-// pdfUrl is for direct open-access PDFs (arXiv, PubMed Central, author page, etc.)
 export const publications: Publication[] = [
   {
     id: 'nature-chem-2026',
@@ -21,8 +18,8 @@ export const publications: Publication[] = [
     title: 'Nearest-neighbor interactions governing charge transport in DNA',
     impact: 'Providing actionable guidelines for the design of DNA transistors.',
     authors: 'Zhang P. et al.',
-    doi: null,           // TODO: add DOI when published, e.g. "10.1038/s41557-026-XXXXX-X"
-    pdfUrl: null,        // TODO: add open-access PDF URL if available
+    doi: null,
+    pdfUrl: null,
     openAccess: false,
   },
   {
@@ -68,5 +65,16 @@ export const publications: Publication[] = [
     doi: '10.1038/ncomms13868',
     pdfUrl: '/papers/carbohydrate-isomers-tunneling-2016.pdf',
     openAccess: true,
+  },
+  {
+    id: 'pnas-2005',
+    year: '2005',
+    journal: 'PNAS',
+    title: 'Study of single-nucleotide polymorphisms in DNA nanojunctions',
+    impact: 'Demonstrates that a single base pair mismatch in DNA can be identified by conductance measurements.',
+    authors: 'Zhang P., Bharat A. & Lindsay S.',
+    doi: null,
+    pdfUrl: '/papers/snp-conductance-2005.pdf',
+    openAccess: false,
   },
 ]

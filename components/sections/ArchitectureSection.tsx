@@ -33,15 +33,6 @@ const coreFeatures = [
     ),
   },
   {
-    label: 'Signal Characteristics',
-    value: 'Discrete electrical pulses.',
-    icon: (
-      <svg viewBox="0 0 28 28" fill="none" className="w-5 h-5">
-        <path d="M2 14 H6 L8 8 L10 20 L12 6 L14 22 L16 14 H26" stroke="#00AAFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    ),
-  },
-  {
     label: 'Data Analytics',
     value: 'Machine Learning (ML)-driven molecular identification and mixture decoding.',
     icon: (
@@ -74,12 +65,11 @@ const coreFeatures = [
 ]
 
 const flowSteps = [
-  { label: 'Target Molecule', sublabel: 'Mol. A / B / C', color: '#0066FF' },
-  { label: 'Universal Receptor', sublabel: 'Kon / Koff binding', color: '#00AAFF' },
-  { label: 'DNA Wired Junction', sublabel: 'Sub-5nm electrode bridge', color: '#0066FF' },
-  { label: 'Electrical Pulse', sublabel: 'Discrete picoampere signal', color: '#00AAFF' },
-  { label: 'Machine Learning', sublabel: 'Molecular ID & decoding', color: '#0066FF' },
-  { label: 'Quantitation', sublabel: 'Event rates → concentrations', color: '#00AAFF' },
+  { label: 'Supramolecular interactions', sublabel: 'Single-molecule kinetics.', color: '#0066FF' },
+  { label: 'DNA Wired Junction', sublabel: 'Modulated charge transport.', color: '#00AAFF' },
+  { label: 'Electrical Output', sublabel: 'Discrete events.', color: '#0066FF' },
+  { label: 'Machine Learning', sublabel: 'Molecular Identification & Decoding.', color: '#00AAFF' },
+  { label: 'Quantitation', sublabel: 'Event rates → concentrations.', color: '#0066FF' },
 ]
 
 export default function ArchitectureSection() {

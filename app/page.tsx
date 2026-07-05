@@ -1,13 +1,11 @@
 import Navbar from '@/components/ui/Navbar'
 import HeroSection from '@/components/sections/HeroSection'
-import TechnologySection from '@/components/sections/TechnologySection'
-import ArchitectureSection from '@/components/sections/ArchitectureSection'
-import DetectionSection from '@/components/sections/DetectionSection'
+import TechnologyHub from '@/components/sections/TechnologyHub'
+import ApplicationsSection from '@/components/sections/ApplicationsSection'
 import ResearchSection from '@/components/sections/ResearchSection'
-import AnalyticsSection from '@/components/sections/AnalyticsSection'
 import EcosystemSection from '@/components/sections/EcosystemSection'
 import TeamSection from '@/components/sections/TeamSection'
-import ApplicationsSection from '@/components/sections/ApplicationsSection'
+import NewsSection from '@/components/sections/NewsSection'
 import ContactSection from '@/components/sections/ContactSection'
 import Footer from '@/components/ui/Footer'
 
@@ -17,14 +15,12 @@ export default function Home() {
       <Navbar />
       <main>
         <HeroSection />
-        <TechnologySection />
-        <ArchitectureSection />
-        <DetectionSection />
+        <TechnologyHub />
+        <ApplicationsSection />
         <ResearchSection />
-        <AnalyticsSection />
         <EcosystemSection />
         <TeamSection />
-        <ApplicationsSection />
+        <NewsSection />
         <ContactSection />
       </main>
       <Footer />

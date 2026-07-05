@@ -9,7 +9,8 @@ const partners = [
     name: 'Arizona State University',
     short: 'ASU',
     role: 'Research & Development Partner',
-    desc: 'Deep academic collaboration on DNA nanotechnology, transistor fabrication, and biosensor research.',
+    badge: '#1 in Innovation',
+    desc: 'Deep academic collaboration on DNA nanotechnology, transistor fabrication, and biosensor research. Ranked #1 in innovation in the United States.',
     color: '#8C1D40',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-7 h-7">
@@ -136,7 +137,14 @@ export default function EcosystemSection() {
                   {p.icon}
                 </div>
                 <div>
-                  <div className="font-grotesk font-700 text-sm text-white leading-tight mb-0.5">{p.name}</div>
+                  <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                    <div className="font-grotesk font-700 text-sm text-white leading-tight">{p.name}</div>
+                    {'badge' in p && p.badge && (
+                      <span className="text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded-full bg-[#8C1D40]/20 text-[#FF6B6B] border border-[#8C1D40]/30">
+                        {p.badge}
+                      </span>
+                    )}
+                  </div>
                   <div
                     className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full inline-block"
                     style={{ background: `${p.color}15`, color: p.color }}

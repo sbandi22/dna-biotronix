@@ -7,41 +7,30 @@ import { Menu, X } from 'lucide-react'
 
 const navLinks = [
   { label: 'Technology', href: '#technology' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Detection', href: '#detection' },
-  { label: 'Research', href: '#research' },
-  { label: 'AI Analytics', href: '#analytics' },
+  { label: 'Applications', href: '#applications' },
+  { label: 'Publications', href: '#research' },
   { label: 'Team', href: '#team' },
+  { label: 'News', href: '#news' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 function DNABiotronixLogo({ size = 36 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      {/* Outer circle background */}
       <circle cx="40" cy="40" r="38" fill="white" />
-
-      {/* DNA text above */}
       <text x="40" y="22" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="800" fontSize="14" fill="#C67C0A">DNA</text>
-
-      {/* Infinity shape - left loop */}
       <path
         d="M18 40 C18 31 25 26 33 26 C38 26 40 30 40 40 C40 30 42 26 47 26 C55 26 62 31 62 40 C62 49 55 54 47 54 C42 54 40 50 40 40 C40 50 38 54 33 54 C25 54 18 49 18 40 Z"
         stroke="#C67C0A"
         strokeWidth="2.5"
         fill="none"
       />
-
-      {/* Left loop vertical bars (DNA signals) */}
       <line x1="24" y1="31" x2="24" y2="49" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
       <line x1="29" y1="27" x2="29" y2="53" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" />
       <line x1="34" y1="30" x2="34" y2="50" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-
-      {/* Right loop vertical bars */}
       <line x1="46" y1="30" x2="46" y2="50" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
       <line x1="51" y1="27" x2="51" y2="53" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" />
       <line x1="56" y1="31" x2="56" y2="49" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-
-      {/* Biotronix text below */}
       <text x="40" y="65" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="600" fontSize="8.5" fill="#C67C0A">Biotronix</text>
     </svg>
   )
@@ -70,7 +59,6 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative flex-shrink-0">
               <div className="absolute inset-0 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-300" style={{ background: 'rgba(196,124,10,0.4)' }} />
@@ -86,7 +74,6 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop links */}
           <div className="hidden lg:flex items-center gap-7">
             {navLinks.map((link) => (
               <Link
@@ -99,12 +86,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="#contact"
-              className="text-sm font-medium text-text-muted hover:text-white transition-colors"
-            >
+            <Link href="#contact" className="text-sm font-medium text-text-muted hover:text-white transition-colors">
               Investor Relations
             </Link>
             <Link
@@ -115,7 +98,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile toggle */}
           <button
             className="lg:hidden text-white p-1"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -126,7 +108,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div

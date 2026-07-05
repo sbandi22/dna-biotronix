@@ -1,230 +1,168 @@
 'use client'
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import SectionHeading from '@/components/ui/SectionHeading'
 
-const applications = [
+const apps = [
   {
-    id: 'diagnostics',
-    title: 'Precision Diagnostics',
-    market: '$85B market',
-    icon: (
-      <svg viewBox="0 0 56 56" fill="none" className="w-10 h-10">
-        <circle cx="28" cy="28" r="20" stroke="#0066FF" strokeWidth="1.5" />
-        <path d="M20 28 L26 34 L38 22" stroke="#00B4FF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="28" cy="28" r="26" stroke="#0066FF" strokeWidth="0.5" strokeDasharray="4 4" opacity="0.3" />
-        <circle cx="28" cy="8" r="3" fill="#0066FF" opacity="0.7" />
-        <circle cx="28" cy="48" r="3" fill="#0066FF" opacity="0.7" />
-        <circle cx="8" cy="28" r="3" fill="#0066FF" opacity="0.7" />
-        <circle cx="48" cy="28" r="3" fill="#0066FF" opacity="0.7" />
-      </svg>
-    ),
-    tagline: 'Detect any disease biomarker at the single-molecule level',
-    desc: 'Our platform enables liquid biopsy diagnostics with unprecedented sensitivity — detecting early-stage cancers, infectious diseases, and metabolic disorders from a single blood draw before symptoms appear.',
-    benefits: [
-      'Early-stage cancer detection (Stage I sensitivity >95%)',
-      'Sepsis identification in <30 minutes',
-      'Multiplexed 50-biomarker panels, single assay',
-      'POC-compatible chip format',
-    ],
+    id: 'personal',
+    title: 'Personal Monitoring',
+    tagline: 'Proactive wellness, anywhere.',
+    desc: 'Track metabolic health and physiological stress continuously. Deployable in wearable patches and portable sensors for proactive wellness management.',
     color: '#0066FF',
-    stage: 'Clinical Validation',
-  },
-  {
-    id: 'drugdiscovery',
-    title: 'Drug Discovery',
-    market: '$120B market',
     icon: (
-      <svg viewBox="0 0 56 56" fill="none" className="w-10 h-10">
-        <rect x="10" y="22" width="36" height="16" rx="8" stroke="#00B4FF" strokeWidth="1.5" />
-        <rect x="24" y="10" width="8" height="36" rx="4" stroke="#0066FF" strokeWidth="1.5" />
-        <circle cx="28" cy="30" r="4" fill="#00B4FF" opacity="0.6" />
-        <path d="M14 18 L20 14 M36 14 L42 18 M14 38 L20 42 M36 42 L42 38" stroke="#0066FF" strokeWidth="1" opacity="0.4" strokeLinecap="round" />
+      <svg viewBox="0 0 56 56" fill="none" className="w-12 h-12">
+        <circle cx="28" cy="20" r="9" stroke="#0066FF" strokeWidth="1.5" />
+        <path d="M14 46c0-7.7 6.3-14 14-14s14 6.3 14 14" stroke="#0066FF" strokeWidth="1.5" strokeLinecap="round" />
+        <rect x="34" y="8" width="14" height="10" rx="3" stroke="#00AAFF" strokeWidth="1.2" fill="rgba(0,170,255,0.08)" />
+        <path d="M36 12h4M36 15h6" stroke="#00AAFF" strokeWidth="1" strokeLinecap="round" />
+        <path d="M20 32 C16 34 13 38 13 42" stroke="#0066FF" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+        <path d="M36 32 C40 34 43 38 43 42" stroke="#0066FF" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
       </svg>
     ),
-    tagline: 'Characterize drug-target interactions at molecular resolution',
-    desc: 'Measure real-time binding kinetics, target engagement, off-target profiles, and mechanism of action for any drug candidate — reducing preclinical attrition and accelerating IND filing.',
-    benefits: [
-      'KD, kon, koff measurement at femtomolar range',
-      'Real-time MOA profiling',
-      'Polypharmacology mapping across 100s of targets',
-      'Direct integration with HTS platforms',
+    features: [
+      'Continuous metabolic health tracking',
+      'Wearable patch & portable sensor formats',
+      'Real-time physiological stress indicators',
+      'Zero blood draws — non-invasive detection',
     ],
-    color: '#00B4FF',
-    stage: 'Active R&D',
-  },
-  {
-    id: 'neuro',
-    title: 'Neurodegenerative\nDiseases',
-    market: '$30B+ unmet need',
-    icon: (
-      <svg viewBox="0 0 56 56" fill="none" className="w-10 h-10">
-        <path d="M28 12 C20 12 14 18 14 26 C14 30 16 33 20 36 L20 44 L36 44 L36 36 C40 33 42 30 42 26 C42 18 36 12 28 12Z" stroke="#0066FF" strokeWidth="1.5" fill="none" />
-        <path d="M22 20 Q28 16 34 20" stroke="#00B4FF" strokeWidth="1.2" fill="none" />
-        <path d="M20 26 Q28 22 36 26" stroke="#00B4FF" strokeWidth="1.2" fill="none" />
-        <line x1="28" y1="12" x2="28" y2="44" stroke="#0066FF" strokeWidth="0.5" strokeDasharray="3 3" opacity="0.4" />
-        <circle cx="28" cy="26" r="3" fill="#0066FF" opacity="0.6" />
-      </svg>
-    ),
-    tagline: 'Track neurodegeneration before symptoms manifest',
-    desc: "Monitor Alzheimer's (Aβ42, p-tau181), Parkinson's (α-synuclein, GFAP), and ALS (neurofilament light) biomarkers in CSF and blood years before clinical onset — enabling preventive intervention.",
-    benefits: [
-      'Amyloid-β detection in blood (not just CSF)',
-      '10-year pre-symptom risk stratification',
-      'Clinical trial enrollment biomarker qualification',
-      'Monitoring treatment response longitudinally',
-    ],
-    color: '#0066FF',
-    stage: 'NIH Funded Study',
-  },
-  {
-    id: 'precision',
-    title: 'Precision Medicine',
-    market: '$100B+ opportunity',
-    icon: (
-      <svg viewBox="0 0 56 56" fill="none" className="w-10 h-10">
-        <path d="M28 10 L40 17 L40 31 L28 38 L16 31 L16 17 Z" stroke="#00B4FF" strokeWidth="1.5" fill="none" />
-        <path d="M28 18 L35 22 L35 30 L28 34 L21 30 L21 22 Z" stroke="#0066FF" strokeWidth="1" fill="rgba(0,102,255,0.08)" />
-        <circle cx="28" cy="26" r="3" fill="#00B4FF" opacity="0.8" />
-        <line x1="28" y1="10" x2="28" y2="18" stroke="#00B4FF" strokeWidth="1" opacity="0.5" />
-        <line x1="28" y1="34" x2="28" y2="42" stroke="#00B4FF" strokeWidth="1" opacity="0.5" />
-      </svg>
-    ),
-    tagline: 'Tailor therapy to the molecular signature of each patient',
-    desc: 'Simultaneous detection of genetic variants, protein biomarkers, metabolites, and microRNA — delivering a complete molecular phenotype that guides optimal therapy selection and dosing.',
-    benefits: [
-      'Companion diagnostic development support',
-      'PK/PD monitoring during treatment',
-      'Pharmacogenomics biomarker profiling',
-      'Real-time treatment response assessment',
-    ],
-    color: '#00B4FF',
-    stage: 'Partner Co-Dev',
   },
   {
     id: 'environmental',
-    title: 'Environmental\nMonitoring',
-    market: '$25B market',
+    title: 'Environmental Testing',
+    tagline: 'Lab-grade precision in the field.',
+    desc: 'Deliver lab-grade precision from the kitchen counter to the field. Detect PFAS, heavy metals, and pathogens in real time without hardware changes.',
+    color: '#00AAFF',
     icon: (
-      <svg viewBox="0 0 56 56" fill="none" className="w-10 h-10">
-        <circle cx="28" cy="28" r="16" stroke="#0066FF" strokeWidth="1.5" fill="none" />
-        <path d="M28 12 C28 12 20 20 20 28 C20 32.4 23.6 36 28 36 C32.4 36 36 32.4 36 28 C36 20 28 12 28 12Z" stroke="#00B4FF" strokeWidth="1.2" fill="rgba(0,180,255,0.08)" />
-        <circle cx="28" cy="28" r="4" fill="#0066FF" opacity="0.5" />
-        <path d="M28 20 L28 24 M28 32 L28 36 M20 28 L24 28 M32 28 L36 28" stroke="#0066FF" strokeWidth="1" strokeLinecap="round" opacity="0.4" />
+      <svg viewBox="0 0 56 56" fill="none" className="w-12 h-12">
+        <circle cx="28" cy="28" r="16" stroke="#00AAFF" strokeWidth="1.5" fill="none" />
+        <path d="M28 12 C28 12 20 20 20 28 C20 32.4 23.6 36 28 36 C32.4 36 36 32.4 36 28 C36 20 28 12 28 12Z"
+          stroke="#0066FF" strokeWidth="1.2" fill="rgba(0,102,255,0.08)" />
+        <circle cx="28" cy="28" r="3.5" fill="#00AAFF" opacity="0.7" />
+        <path d="M28 20V24M28 32V36M20 28H24M32 28H36" stroke="#00AAFF" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+        <path d="M40 12 L44 8M12 44 L8 48" stroke="#0066FF" strokeWidth="1.2" strokeLinecap="round" opacity="0.4" />
+        <circle cx="44" cy="10" r="2" fill="#0066FF" opacity="0.5" />
       </svg>
     ),
-    tagline: 'Ultra-sensitive detection of contaminants and pathogens',
-    desc: 'Field-deployable sensor arrays for water quality, air quality, and food safety monitoring. Single-molecule sensitivity enables detection of PFAS, heavy metals, and pathogens at regulatory thresholds.',
-    benefits: [
+    features: [
       'PFAS detection at 1 ppt in water',
-      'Real-time pathogen surveillance (water/air)',
       'Heavy metal quantification below EPA limits',
-      'IoT-connected distributed monitoring',
+      'Real-time pathogen surveillance',
+      'Field-deployable — no lab infrastructure needed',
     ],
-    color: '#0066FF',
-    stage: 'Prototype Stage',
+  },
+  {
+    id: 'poc',
+    title: 'Point of Care',
+    tagline: 'Central-lab precision at the bedside.',
+    desc: 'Deliver central-lab precision directly to the bedside. ML-driven arrays decode multiplexed biomarker panels within minutes without complex wet chemistry.',
+    color: '#60A5FA',
+    icon: (
+      <svg viewBox="0 0 56 56" fill="none" className="w-12 h-12">
+        <rect x="12" y="18" width="32" height="22" rx="4" stroke="#60A5FA" strokeWidth="1.5" />
+        <path d="M28 12V18" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M22 12H34" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round" />
+        <path d="M20 28 L25 33 L36 22" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <circle cx="44" cy="14" r="5" fill="rgba(96,165,250,0.15)" stroke="#60A5FA" strokeWidth="1.2" />
+        <path d="M44 11V14H47" stroke="#60A5FA" strokeWidth="1" strokeLinecap="round" />
+      </svg>
+    ),
+    features: [
+      'Results in minutes — not hours',
+      'Multiplexed biomarker panel decoding',
+      'No complex wet chemistry required',
+      'ML-driven molecular identification on-chip',
+    ],
   },
 ]
 
 export default function ApplicationsSection() {
-  const [active, setActive] = useState<string | null>(null)
-  const activeApp = applications.find(a => a.id === active) ?? applications[0]
-
   return (
-    <section id="applications" className="relative section-py bg-[#050D1E] overflow-hidden">
-      <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
+    <section id="applications" className="relative section-py bg-[#01050E] overflow-hidden">
+      <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-px bg-gradient-to-r from-transparent via-[#0066FF]/25 to-transparent" />
+      <div className="absolute top-1/3 right-0 w-[400px] h-[400px] bg-[#0066FF]/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[300px] h-[300px] bg-[#00AAFF]/4 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Impact & Applications"
-          title="Transforming"
-          titleHighlight="Healthcare & Beyond"
-          subtitle="One platform — five transformative applications across the full spectrum of human health, from early disease detection to environmental safety."
+          badge="Applications"
+          title="One Platform."
+          titleHighlight="Unlimited Applications."
+          subtitle="From wearable health patches to field-deployed environmental sensors — the DNA Biotronix platform adapts to any context without hardware changes."
           centered
           className="mb-14"
         />
 
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-8 items-start">
-          {/* Application selector cards */}
-          <div className="space-y-3">
-            {applications.map((app, i) => (
-              <motion.button
-                key={app.id}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                onClick={() => setActive(app.id === active ? null : app.id)}
-                className={`w-full text-left flex items-center gap-4 px-5 py-4 rounded-xl border transition-all duration-300 ${
-                  (active === app.id || (active === null && i === 0))
-                    ? 'border-[#0066FF]/35 bg-[#0066FF]/8'
-                    : 'glass border-white/6 hover:border-white/12'
-                }`}
+        <div className="grid md:grid-cols-3 gap-6">
+          {apps.map((app, i) => (
+            <motion.div
+              key={app.id}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative glass border border-white/6 rounded-2xl p-8 flex flex-col
+                         hover:border-[#0066FF]/30 hover:shadow-[0_0_40px_rgba(0,102,255,0.09)]
+                         transition-all duration-400 overflow-hidden"
+            >
+              {/* Top accent */}
+              <div
+                className="absolute top-0 inset-x-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: `linear-gradient(90deg, transparent, ${app.color}, transparent)` }}
+              />
+
+              {/* Corner ambient glow */}
+              <div
+                className="absolute -top-16 -right-16 w-48 h-48 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: `radial-gradient(circle, ${app.color}18, transparent 70%)` }}
+              />
+
+              {/* Icon */}
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 flex-shrink-0
+                           transition-all duration-300 group-hover:scale-105"
+                style={{
+                  background: `${app.color}12`,
+                  boxShadow: `0 0 0 1px ${app.color}20`,
+                }}
               >
-                <div
-                  className="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300"
-                  style={{
-                    background: (active === app.id || (active === null && i === 0)) ? `${app.color}20` : 'rgba(255,255,255,0.04)',
-                    boxShadow: (active === app.id || (active === null && i === 0)) ? `0 0 16px ${app.color}33` : 'none',
-                  }}
-                >
-                  {app.icon}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="font-tight font-bold text-sm text-white whitespace-pre-line leading-tight">{app.title}</div>
-                  <div className="text-[10px] text-text-muted mt-0.5">{app.tagline}</div>
-                </div>
-                <div className="flex-shrink-0 text-right">
-                  <div className="text-[10px] font-bold text-[#00B4FF]">{app.market}</div>
-                </div>
-              </motion.button>
-            ))}
-          </div>
-
-          {/* Detail panel */}
-          <motion.div
-            key={activeApp.id}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="glass border border-[#0066FF]/20 rounded-2xl p-8 sticky top-28"
-          >
-            <div className="flex items-start justify-between mb-6">
-              <div>
-                <div
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest mb-3"
-                  style={{ background: `${activeApp.color}20`, color: activeApp.color }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: activeApp.color }} />
-                  {activeApp.stage}
-                </div>
-                <h3 className="font-tight font-black text-2xl text-white leading-tight whitespace-pre-line">{activeApp.title}</h3>
+                {app.icon}
               </div>
-              <div className="font-tight font-black text-sm text-right" style={{ color: activeApp.color }}>
-                {activeApp.market}
+
+              {/* Badge */}
+              <div
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold uppercase tracking-widest mb-4 self-start"
+                style={{ background: `${app.color}15`, color: app.color }}
+              >
+                <span className="w-1 h-1 rounded-full" style={{ background: app.color }} />
+                {app.tagline}
               </div>
-            </div>
 
-            <p className="text-sm text-text-muted leading-relaxed mb-6">{activeApp.desc}</p>
+              {/* Title */}
+              <h3 className="font-grotesk font-700 text-xl text-white mb-3 leading-tight">{app.title}</h3>
 
-            <div className="space-y-3">
-              <div className="text-xs font-semibold text-white uppercase tracking-widest mb-3">Key Capabilities</div>
-              {activeApp.benefits.map((b, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div
-                    className="w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
-                    style={{ background: `${activeApp.color}20` }}
-                  >
-                    <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3">
-                      <path d="M2 6 L5 9 L10 3" stroke={activeApp.color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+              {/* Description */}
+              <p className="text-sm text-text-muted leading-relaxed mb-6 flex-1">{app.desc}</p>
+
+              {/* Features */}
+              <div className="space-y-2.5 pt-5 border-t border-white/5">
+                {app.features.map((f) => (
+                  <div key={f} className="flex items-start gap-2.5">
+                    <div
+                      className="w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"
+                      style={{ background: `${app.color}18` }}
+                    >
+                      <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
+                        <path d="M2 5 L4 7 L8 3" stroke={app.color} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <span className="text-xs text-text-muted leading-relaxed">{f}</span>
                   </div>
-                  <span className="text-sm text-text-muted leading-relaxed">{b}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

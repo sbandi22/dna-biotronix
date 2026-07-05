@@ -62,11 +62,20 @@ const pubMeta: Record<string, {
       </svg>
     ),
   },
+  'pnas-2005': {
+    badgeColor: '#5B6FA5',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4">
+        <path d="M4 4h16v16H4z" stroke="#5B6FA5" strokeWidth="1.5" strokeLinejoin="round" />
+        <path d="M8 9h8M8 12h6M8 15h4" stroke="#5B6FA5" strokeWidth="1.2" strokeLinecap="round" />
+      </svg>
+    ),
+  },
 }
 
 const metrics = [
-  { value: '5+', label: 'Peer-Reviewed Publications', sublabel: 'Nature & ACS Nano' },
-  { value: '2016', label: 'Research Origin', sublabel: 'Over a decade of science' },
+  { value: '6+', label: 'Peer-Reviewed Publications', sublabel: 'Nature, ACS Nano & PNAS' },
+  { value: '2005', label: 'Research Origin', sublabel: 'Two decades of science' },
   { value: 'Sub-5nm', label: 'Junction Precision', sublabel: 'Angstrom-scale resolution' },
   { value: '1-mol', label: 'Detection Resolution', sublabel: 'True single-molecule sensitivity' },
 ]
@@ -196,10 +205,10 @@ export default function ResearchSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeading
-          badge="Scientific Foundation"
+          badge="Publications"
           title="Peer-Reviewed Research Published in"
-          titleHighlight="Nature & ACS Nano"
-          subtitle="A decade of rigorous science — from foundational transistor physics to multiplexed single-molecule protein detection — validated in the world's most cited journals."
+          titleHighlight="Nature, ACS Nano & PNAS"
+          subtitle="Two decades of rigorous science — from foundational transistor physics to multiplexed single-molecule detection — validated in the world's most cited journals."
           centered
           className="mb-14"
         />
@@ -226,7 +235,7 @@ export default function ResearchSection() {
         <div>
           <div className="flex items-center gap-3 mb-6">
             <div className="w-1 h-6 rounded-full bg-gradient-to-b from-[#00AAFF] to-[#0066FF]" />
-            <h3 className="font-grotesk font-700 text-xl text-white">Key Publications</h3>
+            <h3 className="font-grotesk font-700 text-xl text-white">All Publications</h3>
           </div>
 
           {loading ? (
