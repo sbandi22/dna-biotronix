@@ -8,8 +8,8 @@ const links = {
   Technology: [
     { label: 'DNA Nanojunction', href: '#technology' },
     { label: 'Universal Receptor', href: '#technology' },
-    { label: 'Multiplexed Detection', href: '#detection' },
-    { label: 'AI Analytics', href: '#analytics' },
+    { label: 'Transistor Architecture', href: '#technology' },
+    { label: 'Platform Overview', href: '#technology' },
   ],
   Research: [
     { label: 'Publications', href: '#research' },
