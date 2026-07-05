@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
@@ -14,27 +15,6 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-function DNABiotronixLogo({ size = 36 }: { size?: number }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="40" cy="40" r="38" fill="white" />
-      <text x="40" y="22" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="800" fontSize="14" fill="#C67C0A">DNA</text>
-      <path
-        d="M18 40 C18 31 25 26 33 26 C38 26 40 30 40 40 C40 30 42 26 47 26 C55 26 62 31 62 40 C62 49 55 54 47 54 C42 54 40 50 40 40 C40 50 38 54 33 54 C25 54 18 49 18 40 Z"
-        stroke="#C67C0A"
-        strokeWidth="2.5"
-        fill="none"
-      />
-      <line x1="24" y1="31" x2="24" y2="49" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-      <line x1="29" y1="27" x2="29" y2="53" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" />
-      <line x1="34" y1="30" x2="34" y2="50" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-      <line x1="46" y1="30" x2="46" y2="50" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-      <line x1="51" y1="27" x2="51" y2="53" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" />
-      <line x1="56" y1="31" x2="56" y2="49" stroke="#C67C0A" strokeWidth="2" strokeLinecap="round" opacity="0.9" />
-      <text x="40" y="65" textAnchor="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="600" fontSize="8.5" fill="#C67C0A">Biotronix</text>
-    </svg>
-  )
-}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -61,8 +41,15 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative flex-shrink-0">
-              <div className="absolute inset-0 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-300" style={{ background: 'rgba(196,124,10,0.4)' }} />
-              <DNABiotronixLogo size={40} />
+              <div className="absolute inset-0 rounded-full blur-md opacity-25 group-hover:opacity-50 transition-opacity duration-300" style={{ background: 'rgba(0,120,180,0.5)' }} />
+              <Image
+                src="/images/logo.png"
+                alt="DNA Biotronix"
+                width={44}
+                height={44}
+                className="relative rounded-full"
+                priority
+              />
             </div>
             <div className="flex flex-col leading-none">
               <span className="font-grotesk font-700 text-lg tracking-tight text-white">
