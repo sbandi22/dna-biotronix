@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import SectionHeading from '@/components/ui/SectionHeading'
-import TransistorDiagram from '@/components/visuals/TransistorDiagram'
 
 const coreFeatures = [
   {
@@ -91,17 +90,46 @@ export default function ArchitectureSection() {
           className="mb-14"
         />
 
-        {/* Main architecture diagram from PDF */}
-        {/* Transistor architecture — SVG diagram in site design system palette */}
+        {/* Transistor architecture — 3D rendered image */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="w-full max-w-5xl mx-auto mb-14 rounded-2xl overflow-hidden"
-          style={{ boxShadow: '0 0 80px rgba(0,212,255,0.12), 0 30px 80px rgba(0,0,0,0.65)' }}
+          className="relative w-full max-w-5xl mx-auto mb-14 rounded-2xl overflow-hidden"
+          style={{ boxShadow: '0 0 80px rgba(0,102,255,0.16), 0 30px 80px rgba(0,0,0,0.65)' }}
         >
-          <TransistorDiagram />
+          {/* Ambient glow */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: 'radial-gradient(ellipse at 50% 45%, rgba(0,70,200,0.12) 0%, transparent 68%)', zIndex: 1 }} />
+
+          <Image
+            src="/images/transistor-architecture-render.png"
+            alt="DNA Transistor Architecture — Source, Drain, Nanostructure, DNA Wire, Universal Receptor"
+            width={1682}
+            height={946}
+            className="w-full h-auto relative"
+            style={{ filter: 'brightness(0.92) contrast(1.05) saturate(0.95)', zIndex: 2 }}
+            priority
+          />
+
+          {/* Edge vignettes — section bg #050D1E */}
+          <div className="absolute inset-x-0 top-0 h-14 pointer-events-none"
+            style={{ background: 'linear-gradient(to bottom, #050D1E, transparent)', zIndex: 3 }} />
+          <div className="absolute inset-x-0 bottom-0 h-20 pointer-events-none"
+            style={{ background: 'linear-gradient(to top, #050D1E, transparent)', zIndex: 3 }} />
+          <div className="absolute inset-y-0 left-0 w-14 pointer-events-none"
+            style={{ background: 'linear-gradient(to right, #050D1E, transparent)', zIndex: 3 }} />
+          <div className="absolute inset-y-0 right-0 w-14 pointer-events-none"
+            style={{ background: 'linear-gradient(to left, #050D1E, transparent)', zIndex: 3 }} />
+
+          {/* Subtle blue tint */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: 'rgba(0,40,130,0.06)', zIndex: 4 }} />
+
+          {/* Inner border glow */}
+          <div className="absolute inset-0 rounded-2xl pointer-events-none"
+            style={{ boxShadow: 'inset 0 0 60px rgba(0,102,255,0.09)', border: '1px solid rgba(0,102,255,0.18)', zIndex: 5 }} />
         </motion.div>
 
         {/* Core Features + Flow */}
