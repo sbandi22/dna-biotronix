@@ -136,10 +136,10 @@ export default function HeroSection() {
 
             {/* Image */}
             <Image
-              src="/images/hero-platform.jpeg"
+              src="/images/hero-platform.png"
               alt="DNA Biotronix — A DNA Transistor Sensor for Proactive Healthcare. Personal Monitoring, Environmental Testing, Point of Care."
-              width={1672}
-              height={1143}
+              width={5184}
+              height={2886}
               className="w-full h-auto relative"
               style={{ filter: 'brightness(0.90) contrast(1.07)', zIndex: 2 }}
               priority
