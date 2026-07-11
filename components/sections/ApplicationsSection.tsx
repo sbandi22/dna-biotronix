@@ -8,7 +8,7 @@ const apps = [
     id: 'personal',
     title: 'Personal Monitoring',
     tagline: 'Proactive wellness, anywhere.',
-    desc: 'Track metabolic health and physiological stress continuously. Deployable in wearable patches and portable sensors for proactive wellness management.',
+    desc: 'Track metabolic health and physiological stress any time. Deployable in wearable patches and portable sensors for proactive wellness management.',
     color: '#0066FF',
     icon: (
       <svg viewBox="0 0 56 56" fill="none" className="w-12 h-12">
@@ -21,10 +21,9 @@ const apps = [
       </svg>
     ),
     features: [
-      'Continuous metabolic health tracking',
       'Wearable patch & portable sensor formats',
+      'On-demand metabolic health tracking',
       'Real-time physiological stress indicators',
-      'Zero blood draws — non-invasive detection',
     ],
   },
   {
@@ -45,8 +44,8 @@ const apps = [
       </svg>
     ),
     features: [
-      'PFAS detection at 1 ppt in water',
-      'Heavy metal quantification below EPA limits',
+      'Ultrasensitive PFAS detection in water',
+      'Trace-level heavy metal quantification',
       'Real-time pathogen surveillance',
       'Field-deployable — no lab infrastructure needed',
     ],
@@ -55,7 +54,7 @@ const apps = [
     id: 'poc',
     title: 'Point of Care',
     tagline: 'Central-lab precision at the bedside.',
-    desc: 'Deliver central-lab precision directly to the bedside. ML-driven arrays decode multiplexed biomarker panels within minutes without complex wet chemistry.',
+    desc: 'Deliver central-lab precision directly to the bedside. Our ML-driven arrays decode multiplexed biomarker panels for cancer and neurodegenerative diseases in minutes.',
     color: '#60A5FA',
     icon: (
       <svg viewBox="0 0 56 56" fill="none" className="w-12 h-12">
@@ -70,7 +69,6 @@ const apps = [
     features: [
       'Results in minutes — not hours',
       'Multiplexed biomarker panel decoding',
-      'No complex wet chemistry required',
       'ML-driven molecular identification on-chip',
     ],
   },
@@ -87,9 +85,9 @@ export default function ApplicationsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
           badge="Applications"
-          title="One Platform."
-          titleHighlight="Unlimited Applications."
-          subtitle="From wearable health patches to field-deployed environmental sensors — the DNA Biotronix platform adapts to any context without hardware changes."
+          title="The Next Era of"
+          titleHighlight="Molecular Sensing"
+          subtitle="Early detection of silent health anomalies and emerging environmental contaminants. One Platform. Limitless Potential."
           centered
           className="mb-14"
         />
