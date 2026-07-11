@@ -9,7 +9,7 @@ import { Menu, X } from 'lucide-react'
 const navLinks = [
   { label: 'Technology', href: '#technology' },
   { label: 'Applications', href: '#applications' },
-  { label: 'Publications', href: '#research' },
+  { label: 'Scientific Foundation', href: '#research' },
   { label: 'Team', href: '#team' },
   { label: 'News', href: '#news' },
   { label: 'Contact', href: '#contact' },
