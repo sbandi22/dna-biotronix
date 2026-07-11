@@ -65,7 +65,7 @@ const advisors = [
     bio: "World-renowned neuroscientist with expertise in Parkinson's and Alzheimer's disease. Guides clinical application strategy for neurodegenerative biomarker detection.",
     expertise: ["Neuroscience", "Parkinson's", "Alzheimer's"],
     initials: 'JK',
-    photo: null,
+    photo: '/images/advisor-kordower.png',
     accentColor: '#0066FF',
     gradientFrom: '#002299',
     gradientTo: '#0055DD',
