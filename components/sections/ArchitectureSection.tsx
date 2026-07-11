@@ -106,8 +106,8 @@ export default function ArchitectureSection() {
           <Image
             src="/images/transistor-architecture-render.png"
             alt="DNA Transistor Architecture — Source, Drain, Nanostructure, DNA Wire, Universal Receptor"
-            width={1682}
-            height={946}
+            width={3364}
+            height={1892}
             className="w-full h-auto relative"
             style={{ filter: 'brightness(0.92) contrast(1.05) saturate(0.95)', zIndex: 2 }}
             priority
