@@ -236,12 +236,12 @@ export default function ArchitectureSection() {
               style={{ background: 'radial-gradient(ellipse at 50% 55%, rgba(0,80,210,0.15) 0%, transparent 70%)', zIndex: 1 }} />
 
             <Image
-              src="/images/chip-prototype.jpeg"
+              src="/images/chip-prototype.png"
               alt="DNA Biotronix Gen-1 Chip next to a penny and Device Prototype with smartphone measurement platform"
-              width={1853}
-              height={1043}
+              width={2262}
+              height={1228}
               className="w-full h-auto relative"
-              style={{ filter: 'brightness(0.87) contrast(1.09) saturate(0.88)', zIndex: 2 }}
+              style={{ filter: 'brightness(0.90) contrast(1.07) saturate(0.92)', zIndex: 2 }}
             />
 
             {/* Edge vignettes — section bg #050D1E */}
