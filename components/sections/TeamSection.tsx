@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import SectionHeading from '@/components/ui/SectionHeading'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
@@ -261,21 +260,28 @@ export default function TeamSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <SectionHeading
-          badge="Leadership & Advisory Board"
-          title="The Team Behind"
-          titleHighlight="DNA Biotronix"
-          subtitle="World-class scientists and entrepreneurs united by a shared mission — democratizing molecular intelligence for proactive healthcare."
-          centered
-          className="mb-16"
-        />
+        {/* ── Founding Members header ── */}
+        <div className="mb-12">
+          <div className="rounded-xl overflow-hidden mb-6" style={{ background: 'linear-gradient(135deg, #1A3A8F 0%, #0A55C4 50%, #1A3A8F 100%)' }}>
+            <div className="px-8 py-5 text-center">
+              <h2 className="font-grotesk font-700 text-3xl lg:text-4xl text-white tracking-tight">Founding Members</h2>
+            </div>
+          </div>
+          <p className="text-center text-base text-text-muted max-w-2xl mx-auto mb-6">
+            Advancing molecular intelligence to power the next generation of proactive healthcare.
+          </p>
+          <div className="rounded-xl overflow-hidden" style={{ background: 'linear-gradient(135deg, #050D1E 0%, #0A1A3E 100%)', border: '1px solid rgba(0,102,255,0.15)' }}>
+            <div className="flex items-center gap-4 px-7 py-5">
+              <div className="w-1 self-stretch rounded-full flex-shrink-0" style={{ background: '#0066FF', minHeight: '2rem' }} />
+              <p className="font-grotesk font-700 text-xl lg:text-2xl text-white">Decades of Deep-Tech Innovations.</p>
+            </div>
+          </div>
+        </div>
 
         {/* ── Section 1: Founding Team ── */}
         <div className="mb-16">
           <SectionDivider label="Founding Team" color="#0066FF" />
-          <p className="text-center text-sm text-text-muted max-w-2xl mx-auto mt-4 mb-10">
-            Three co-founders combining deep expertise in molecular science, nanoelectronics, and corporate finance — with decades of complementary experience.
-          </p>
+          <div className="mt-10" />
 
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {founders.map((f, i) => (
