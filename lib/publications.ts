@@ -19,7 +19,7 @@ export const publications: Publication[] = [
     impact: 'Providing actionable guidelines for the design of DNA transistors.',
     authors: 'J. Hihath, et al.',
     doi: null,
-    pdfUrl: null,
+    pdfUrl: '/papers/nearest-neighbor-charge-transport-2026.pdf',
     openAccess: false,
   },
   {
