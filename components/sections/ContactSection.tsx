@@ -22,7 +22,7 @@ export default function ContactSection() {
 
         <div className="flex justify-center">
           <motion.a
-            href="mailto:contact@dnabiotronix.com"
+            href="mailto:contact@dnab.bio"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -50,7 +50,7 @@ export default function ContactSection() {
             <div className="text-[11px] font-semibold uppercase tracking-widest text-text-muted mb-3">Email Us</div>
 
             <div className="font-grotesk font-700 text-xl text-white mb-2 group-hover:text-[#00AAFF] transition-colors duration-200">
-              contact@dnabiotronix.com
+              contact@dnab.bio
             </div>
 
             <p className="text-sm text-text-muted mb-8 max-w-xs leading-relaxed">
