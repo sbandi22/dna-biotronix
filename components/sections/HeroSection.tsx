@@ -127,16 +127,6 @@ export default function HeroSection() {
               style={{ boxShadow: 'inset 0 0 70px rgba(0,102,255,0.10)', border: '1px solid rgba(0,102,255,0.20)', zIndex: 5 }} />
           </motion.div>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1.0 }}
-            className="mt-8 text-text-muted text-sm font-medium tracking-widest uppercase"
-          >
-            One Platform.{' '}
-            <span className="text-white">Unlimited Applications.</span>
-          </motion.p>
         </div>
       </div>
 

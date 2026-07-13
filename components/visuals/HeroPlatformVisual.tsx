@@ -242,11 +242,6 @@ export default function HeroPlatformVisual() {
           ))}
         </div>
 
-        {/* Tagline */}
-        <p className="text-xs text-text-muted font-medium tracking-[0.2em] uppercase">
-          One Platform.{' '}
-          <span className="text-white">Unlimited Applications.</span>
-        </p>
       </div>
     </div>
   )
