@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import SectionHeading from '@/components/ui/SectionHeading'
 import type { Publication } from '@/lib/publications'
 
 function ViewPaperButton({ pub }: { pub: Publication }) {
@@ -52,13 +51,12 @@ export default function ResearchSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <SectionHeading
-          badge="Scientific Foundation"
-          title="Peer-Reviewed"
-          titleHighlight="Publications"
-          centered
-          className="mb-14"
-        />
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-blue-500/20 text-[#00B4FF] text-xs font-semibold uppercase tracking-widest">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#00B4FF] animate-pulse" />
+            Scientific Foundation
+          </div>
+        </div>
 
         {/* Table */}
         <motion.div
