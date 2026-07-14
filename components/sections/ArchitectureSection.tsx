@@ -82,7 +82,7 @@ export default function ArchitectureSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeading
-          badge="Transistor Architecture"
+          badge="Core Technology"
           title="Multiplexed Single-Molecule"
           titleHighlight="Detection"
           subtitle="A self-aligning DNA wired nanojunction transistor — one universal receptor structure recognizes multiple molecular targets, decoded in real time by machine learning."
