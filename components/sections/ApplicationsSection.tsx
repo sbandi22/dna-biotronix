@@ -58,12 +58,11 @@ const apps = [
     color: '#60A5FA',
     icon: (
       <svg viewBox="0 0 56 56" fill="none" className="w-12 h-12">
-        <rect x="12" y="18" width="32" height="22" rx="4" stroke="#60A5FA" strokeWidth="1.5" />
-        <path d="M28 12V18" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M22 12H34" stroke="#60A5FA" strokeWidth="1.5" strokeLinecap="round" />
-        <path d="M20 28 L25 33 L36 22" stroke="#60A5FA" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <circle cx="44" cy="14" r="5" fill="rgba(96,165,250,0.15)" stroke="#60A5FA" strokeWidth="1.2" />
-        <path d="M44 11V14H47" stroke="#60A5FA" strokeWidth="1" strokeLinecap="round" />
+        {/* Medical cross */}
+        <rect x="23" y="10" width="10" height="36" rx="3" fill="rgba(96,165,250,0.15)" stroke="#60A5FA" strokeWidth="1.5" />
+        <rect x="10" y="23" width="36" height="10" rx="3" fill="rgba(96,165,250,0.15)" stroke="#60A5FA" strokeWidth="1.5" />
+        {/* Pulse line across center */}
+        <path d="M10 28 H18 L21 22 L25 34 L29 24 L32 28 H46" stroke="#60A5FA" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.85" />
       </svg>
     ),
     features: [
