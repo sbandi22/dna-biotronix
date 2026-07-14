@@ -287,25 +287,14 @@ export default function TeamSection() {
 
         {/* ── Section 1: Founding Team ── */}
         <div className="mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative w-full rounded-2xl overflow-hidden"
-            style={{ boxShadow: '0 0 60px rgba(0,102,255,0.14), 0 20px 60px rgba(0,0,0,0.6)' }}
-          >
-            <Image
-              src="/images/founding-members-slide.png"
-              alt="Founding Members — Peiming Zhang, Michael Chen, Josh Hihath"
-              width={3344}
-              height={1882}
-              className="w-full h-auto"
-              priority
-            />
-            <div className="absolute inset-0 rounded-2xl pointer-events-none"
-              style={{ boxShadow: 'inset 0 0 60px rgba(0,102,255,0.08)', border: '1px solid rgba(0,102,255,0.15)' }} />
-          </motion.div>
+          <SectionDivider label="Founding Team" color="#0066FF" />
+          <div className="mt-10" />
+
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
+            {founders.map((f, i) => (
+              <FounderCard key={f.name} founder={f} index={i} />
+            ))}
+          </div>
         </div>
 
         {/* ── Section 2: Scientific Advisory Board (hidden — uncomment to restore) ── */}
