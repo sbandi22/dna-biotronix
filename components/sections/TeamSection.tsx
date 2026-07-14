@@ -297,8 +297,8 @@ export default function TeamSection() {
           </div>
         </div>
 
-        {/* ── Section 2: Scientific Advisory Board ── */}
-        <div>
+        {/* ── Section 2: Scientific Advisory Board (hidden — uncomment to restore) ── */}
+        {/* <div>
           <SectionDivider label="Scientific Advisory Board" color="#00AAFF" />
           <p className="text-center text-sm text-text-muted max-w-2xl mx-auto mt-4 mb-10">
             World-class researchers guiding the platform's scientific direction, clinical translation, and sensor integration across biosensors, neuroscience, and molecular electronics.
@@ -308,7 +308,7 @@ export default function TeamSection() {
               <AdvisorCard key={a.name} advisor={a} index={i} />
             ))}
           </div>
-        </div>
+        </div> */}
 
       </div>
     </section>
