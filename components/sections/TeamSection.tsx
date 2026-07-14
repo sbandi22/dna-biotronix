@@ -272,10 +272,6 @@ export default function TeamSection() {
             Founding <span style={{ color: '#00AAFF' }}>Members</span>
           </h2>
 
-          <p className="text-base text-text-muted max-w-2xl mx-auto mb-8">
-            Advancing molecular intelligence to power the next generation of proactive healthcare.
-          </p>
-
           {/* Tagline banner */}
           <div
             className="relative rounded-xl overflow-hidden text-left"
