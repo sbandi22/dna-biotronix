@@ -287,8 +287,7 @@ export default function TeamSection() {
 
         {/* ── Section 1: Founding Team ── */}
         <div className="mb-16">
-          <SectionDivider label="Founding Team" color="#0066FF" />
-          <div className="mt-10" />
+          <div className="mt-4" />
 
           <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {founders.map((f, i) => (
