@@ -19,18 +19,6 @@ const founders = [
     gradientTo: '#0077FF',
   },
   {
-    name: 'Michael Chen',
-    title: 'Co-founder & CFO',
-    affiliation: 'Finance & Corporate Strategy',
-    bio: 'Founder and MD of financial advisory firm; 30+ experience in finance, M&A, and fundraising.',
-    expertise: ['Financial Strategy', 'M&A', 'Fundraising', 'Operations'],
-    initials: 'MC',
-    photo: '/images/founder-michael-chen.jpg',
-    accentColor: '#00AAFF',
-    gradientFrom: '#0055AA',
-    gradientTo: '#00BBFF',
-  },
-  {
     name: 'Josh Hihath',
     title: 'Co-founder & CSO',
     affiliation: 'UC Davis / ASU Biodesign Center',
@@ -38,9 +26,21 @@ const founders = [
     expertise: ['Molecular Electronics', 'Nanoelectronics', 'Bioelectronics'],
     initials: 'JH',
     photo: '/images/founder-josh-hihath.png',
-    accentColor: '#0066FF',
+    accentColor: '#00AAFF',
     gradientFrom: '#002E8A',
     gradientTo: '#0066EE',
+  },
+  {
+    name: 'Michael Chen',
+    title: 'Co-founder & CFO',
+    affiliation: 'Finance & Corporate Strategy',
+    bio: 'Founder and MD of financial advisory firm; 30+ experience in finance, M&A, and fundraising.',
+    expertise: ['Financial Strategy', 'M&A', 'Fundraising', 'Operations'],
+    initials: 'MC',
+    photo: '/images/founder-michael-chen.jpg',
+    accentColor: '#0066FF',
+    gradientFrom: '#0055AA',
+    gradientTo: '#00BBFF',
   },
 ]
 
@@ -265,7 +265,7 @@ export default function TeamSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-[#0066FF]/25 mb-6">
             <div className="w-1.5 h-1.5 rounded-full bg-[#00AAFF] animate-pulse" />
-            <span className="text-[11px] font-semibold uppercase tracking-widest text-text-muted">Leadership & Advisory Board</span>
+            <span className="text-[11px] font-semibold uppercase tracking-widest text-text-muted">Team</span>
           </div>
 
           <h2 className="font-grotesk font-700 text-4xl lg:text-5xl text-white tracking-tight mb-4">
