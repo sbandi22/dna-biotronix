@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { publications } from '@/lib/publications'
 import type { Publication } from '@/lib/publications'
 
 function ViewPaperButton({ pub }: { pub: Publication }) {
@@ -33,16 +33,6 @@ const journalColor: Record<string, string> = {
 }
 
 export default function ResearchSection() {
-  const [publications, setPublications] = useState<Publication[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/api/publications')
-      .then(r => r.json())
-      .then((data: Publication[]) => { setPublications(data); setLoading(false) })
-      .catch(() => setLoading(false))
-  }, [])
-
   return (
     <section id="research" className="relative section-py bg-[#01050E] overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-10 pointer-events-none" />
@@ -67,7 +57,6 @@ export default function ResearchSection() {
           className="relative rounded-2xl overflow-hidden"
           style={{ boxShadow: '0 0 60px rgba(0,102,255,0.12), 0 20px 60px rgba(0,0,0,0.6)' }}
         >
-          {/* Table container */}
           <div className="bg-[#050D1E] border border-[#0066FF]/20 rounded-2xl overflow-hidden">
 
             {/* Header */}
@@ -78,64 +67,49 @@ export default function ResearchSection() {
             </div>
 
             {/* Rows */}
-            {loading ? (
-              <div className="px-6 py-8 space-y-6">
-                {[...Array(6)].map((_, i) => (
-                  <div key={i} className="grid grid-cols-[90px_160px_1fr] gap-0 animate-pulse">
-                    <div className="h-4 w-12 bg-white/8 rounded" />
-                    <div className="h-4 w-24 bg-white/8 rounded" />
-                    <div className="h-4 w-full bg-white/8 rounded" />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div>
-                {publications.map((pub, i) => {
-                  const color = journalColor[pub.journal] ?? '#0066FF'
-                  return (
-                    <motion.div
-                      key={pub.id}
-                      initial={{ opacity: 0, x: -16 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.07 }}
-                      className={`grid grid-cols-[90px_160px_1fr] gap-0 px-6 py-5 hover:bg-[#0066FF]/5 transition-colors duration-200 ${
-                        i < publications.length - 1 ? 'border-b border-white/5' : ''
-                      }`}
-                    >
-                      {/* Year */}
-                      <div className="flex items-start pt-0.5">
-                        <span className="font-grotesk font-700 text-sm text-white">{pub.year}</span>
-                      </div>
+            <div>
+              {publications.map((pub, i) => {
+                const color = journalColor[pub.journal] ?? '#0066FF'
+                return (
+                  <motion.div
+                    key={pub.id}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.07 }}
+                    className={`grid grid-cols-[90px_160px_1fr] gap-0 px-6 py-5 hover:bg-[#0066FF]/5 transition-colors duration-200 ${
+                      i < publications.length - 1 ? 'border-b border-white/5' : ''
+                    }`}
+                  >
+                    {/* Year */}
+                    <div className="flex items-start pt-0.5">
+                      <span className="font-grotesk font-700 text-sm text-white">{pub.year}</span>
+                    </div>
 
-                      {/* Journal */}
-                      <div className="flex items-start pt-0.5 pr-4">
-                        <span
-                          className="text-sm font-semibold leading-snug"
-                          style={{ color }}
-                        >
-                          {pub.journal}
-                        </span>
-                      </div>
+                    {/* Journal */}
+                    <div className="flex items-start pt-0.5 pr-4">
+                      <span className="text-sm font-semibold leading-snug" style={{ color }}>
+                        {pub.journal}
+                      </span>
+                    </div>
 
-                      {/* Title + Impact + Authors + Link */}
-                      <div className="flex flex-col gap-1 min-w-0">
-                        <div className="flex items-start justify-between gap-4">
-                          <p className="font-grotesk font-600 text-sm text-white leading-snug">{pub.title}</p>
-                          <div className="flex-shrink-0 mt-0.5">
-                            <ViewPaperButton pub={pub} />
-                          </div>
+                    {/* Title + Impact + Authors + Link */}
+                    <div className="flex flex-col gap-1 min-w-0">
+                      <div className="flex items-start justify-between gap-4">
+                        <p className="font-grotesk font-600 text-sm text-white leading-snug">{pub.title}</p>
+                        <div className="flex-shrink-0 mt-0.5">
+                          <ViewPaperButton pub={pub} />
                         </div>
-                        <p className="text-xs italic leading-relaxed" style={{ color: `${color}CC` }}>
-                          {pub.impact}
-                        </p>
-                        <p className="text-[11px] text-white/35">{pub.authors}</p>
                       </div>
-                    </motion.div>
-                  )
-                })}
-              </div>
-            )}
+                      <p className="text-xs italic leading-relaxed" style={{ color: `${color}CC` }}>
+                        {pub.impact}
+                      </p>
+                      <p className="text-[11px] text-white/35">{pub.authors}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
+            </div>
           </div>
         </motion.div>
       </div>
